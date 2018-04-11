@@ -3,14 +3,13 @@ APP_IMAGE=pitakill/cc-golang:0.0.1
 APP_PORT=3000
 APP_VOLUME=.:/go/src/app
 
-DB_CONTAINER=kalimanDB
-DB_HOST=kalimanDB
-DB_IMAGE=pitakill/cc-mysql:0.0.1
-DB_NAME=go_api
-DB_PASSWORD=root
-DB_PORT=3306
-DB_USERNAME=root
-DB_VOLUME=./sqlDumps:/docker-entrypoint-initdb.d
+MYSQL_CONTAINER=kalimanMYSQL
+MYSQL_HOST=kalimanMYSQL
+MYSQL_IMAGE=pitakill/cc-mysql:0.0.1
+MYSQL_PORT=3306
+MYSQL_PASSWORD=root
+MYSQL_USERNAME=root
+MYSQL_VOLUME=./sqlDumps:/docker-entrypoint-initdb.d
 
 MYSQL_DATABASE=go_api
 MYSQL_ROOT_PASSWORD=root

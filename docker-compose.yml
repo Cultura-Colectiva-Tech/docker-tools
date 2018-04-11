@@ -1,29 +1,31 @@
 version: '3.5'
 services:
   app:
-    image: "${APP_IMAGE}"
-    container_name: "${APP_CONTAINER}"
+    image: $APP_IMAGE
+    container_name: $APP_CONTAINER
     depends_on:
       - db
     env_file:
       - .env
     environment:
-      VIRTUAL_HOST: "${APP_CONTAINER}"
+      VIRTUAL_HOST: $APP_CONTAINER
+    ports:
+      - $APP_PORT:$APP_PORT
     expose:
-      - "${APP_PORT}"
+      - $APP_PORT
     volumes:
-      - "${APP_VOLUME}"
+      - $APP_VOLUME
   db:
-    image: ${DB_IMAGE}
-    container_name: "${DB_CONTAINER}"
+    image: $MYSQL_IMAGE
+    container_name: $MYSQL_CONTAINER
     env_file:
       - .env
     environment:
-      VIRTUAL_HOST: "${DB_CONTAINER}"
+      VIRTUAL_HOST: $MYSQL_CONTAINER
     expose:
-      - "${DB_PORT}"
+      - $MYSQL_PORT
     volumes:
-      - "${DB_VOLUME}"
+      - $MYSQL_VOLUME
 networks:
   default:
-    name: "${NETWORK}"
+    name: $NETWORK
